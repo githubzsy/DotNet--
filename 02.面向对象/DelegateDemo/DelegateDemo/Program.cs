@@ -1,2 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using DelegateDemo;
+using DelegateDemo.EventTest;
+
+EventTest.Test2();
+Console.ReadKey();

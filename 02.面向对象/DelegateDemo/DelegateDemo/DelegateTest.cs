@@ -17,15 +17,7 @@ namespace DelegateDemo
 {
     public static class DelegateTest
     {
-        /// <summary>
-        /// 处理两个int，返回一个int
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public delegate int HandleTwoInt(int a,int b);
-
-        public static int Test(int a , int b)
+        public static int TestPlus(int a , int b)
         {
             try
             {
@@ -39,12 +31,32 @@ namespace DelegateDemo
             }
         }
 
-        public static int Test2(int a,int b)
+        public static int TestDivide(int a,int b)
         {
-            return InnerTest(a, b,new HandleTwoInt(Plus));
+            try
+            {
+                return a / b;
+            }
+            catch (Exception ex)
+            {
+                // 记录日志
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
 
-        public static int Plus(int a, int b)
+        #region 委托
+
+
+        /// <summary>
+        /// 处理两个int，返回一个int
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public delegate int HandleTwoInt(int a, int b);
+
+        private static int Plus(int a, int b)
         {
             return a + b;
         }
@@ -62,6 +74,8 @@ namespace DelegateDemo
                 throw ex;
             }
         }
+
+        #endregion
 
     }
 }

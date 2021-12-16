@@ -17,6 +17,9 @@ namespace DelegateDemo
 {
     public class FileSearcher
     {
+        /// <summary>
+        /// 事件 - 找到了文件
+        /// </summary>
         public event EventHandler<FileFoundArgs> FileFound;
 
         public void Search(string directory, string searchPattern)
@@ -33,9 +36,9 @@ namespace DelegateDemo
             FileFound += FileSearcher_FileFound;
         }
 
-        private void FileSearcher_FileFound(object? sender, FileFoundArgs e)
+        public void FileSearcher_FileFound(object? sender, FileFoundArgs e)
         {
-
+            Console.WriteLine("FileSearcher_FileFound 找到了文件:"+e.FoundFile);
         }
     }
 }
