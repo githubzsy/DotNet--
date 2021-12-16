@@ -20,20 +20,24 @@ namespace ThreadDemo
     {
         internal async static void Test()
         {
-            var task= FeedChickenCorn();
+            var task = FeedChickenCorn();
             FeedCat();
             PickEgg();
 
-            await task;
+            var a= await task;
             FeedChickenVegetable();
+
+            await PickEgg();
             WateringVegetable();
         }
 
-        static async Task FeedChickenCorn()
+        static async Task<string> FeedChickenCorn()
         {
-            Console.WriteLine("鸡吃玉米开始, 当前线程为:"+ Thread.CurrentThread.ManagedThreadId);
+             Console.WriteLine("鸡吃玉米开始, 当前线程为:"+ Thread.CurrentThread.ManagedThreadId);
             await Task.Delay(1000);
+           
             Console.WriteLine("鸡吃玉米，花费10分钟吃完了，可以喂鸡蔬菜了, 当前线程为:"+Thread.CurrentThread.ManagedThreadId);
+            return "abc";
         }
 
 

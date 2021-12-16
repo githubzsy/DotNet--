@@ -26,15 +26,18 @@ namespace DelegateDemo
         {
             foreach (var file in Directory.EnumerateFiles(directory, searchPattern))
             {
-                FileFound?.Invoke(this, new FileFoundArgs(file));
+                // 触发事件
+               FileFound?.Invoke(this, new FileFoundArgs(file));
             }
         }
 
 
         public FileSearcher()
         {
+            // 内部订阅
             FileFound += FileSearcher_FileFound;
         }
+
 
         public void FileSearcher_FileFound(object? sender, FileFoundArgs e)
         {

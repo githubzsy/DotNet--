@@ -13,7 +13,7 @@ namespace SerializerDemo
         public int Id { get; set; }
 
         //[XmlElement("RealName")]
-        //[JsonPropertyName("Windy")]
+        // [JsonPropertyName("Windy")]
         public string Name { get; set; }
 
     }

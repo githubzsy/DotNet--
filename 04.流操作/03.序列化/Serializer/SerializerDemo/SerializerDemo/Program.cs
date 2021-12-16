@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Text.Json;
 using System.Xml.Serialization;
 
@@ -9,14 +10,25 @@ namespace SerializerDemo
     {
         static void Main(string[] args)
         {
-            ClassJsonSerializerTest();
+           var stu = new Student { Id = 1, Name = "傻子" };
+            Console.WriteLine(ToXml(stu));
+
+            //FileInfo fileInfo = new FileInfo("d:\\1.txt");
+            //FileStream fs = fileInfo.OpenWrite();
+            //string aa = "asdasd";
+            //var bytes = Encoding.UTF8.GetBytes(aa);
+            //fs.Write(bytes, 0, bytes.Length);
+            //fs.Close();
         }
 
         #region json序列化
         static void ClassJsonSerializerTest()
         {
             var stu = new Student { Id = 1, };
+
             string json = JsonSerializer.Serialize(stu);
+            File.WriteAllText("d:\\1.txt", json);
+
             Console.WriteLine(json);
 
             var stu2 = JsonSerializer.Deserialize<Student>(json);
@@ -58,7 +70,6 @@ namespace SerializerDemo
         {
             using (StringWriter sw = new())
             {
-                Type t = obj.GetType();
                 XmlSerializer serializer = new XmlSerializer(obj.GetType());
                 serializer.Serialize(sw, obj);
                 sw.Close();

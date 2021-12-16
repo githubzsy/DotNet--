@@ -20,25 +20,24 @@ namespace ThreadDemo
     {
         internal static void Test()
         {
-            //Thread feedChickenCornThread = new Thread(new ThreadStart(FeedChickenCorn));
-            //feedChickenCornThread.Start();
+            Thread feedChickenCornThread = new Thread(new ThreadStart(FeedChickenCorn));
+            feedChickenCornThread.Start();
 
 
-            //Thread feedCatThread = new Thread(new ThreadStart(FeedCat));
-            //feedCatThread.Start();
+            Thread feedCatThread = new Thread(new ThreadStart(FeedCat));
+            feedCatThread.Start();
 
 
-            //Thread pickEggThread = new Thread(new ThreadStart(PickEgg));
-            //pickEggThread.Start();
+            Thread pickEggThread = new Thread(new ThreadStart(PickEgg));
+            pickEggThread.Start();
 
-            //feedChickenCornThread.Join();
-            //Thread feedChickenVegetableThread = new Thread(new ThreadStart(FeedChickenVegetable));
-            //feedChickenVegetableThread.Start();
+            feedChickenCornThread.Join();
+            Thread feedChickenVegetableThread = new Thread(new ThreadStart(FeedChickenVegetable));
+            feedChickenVegetableThread.Start();
 
-
-            //Thread wateringVegetableThread = new Thread(new ThreadStart(WateringVegetable));
-            //wateringVegetableThread.Start();
-
+            pickEggThread.Join();
+            Thread wateringVegetableThread = new Thread(new ThreadStart(WateringVegetable));
+            wateringVegetableThread.Start();
             Console.ReadKey();
         }
 

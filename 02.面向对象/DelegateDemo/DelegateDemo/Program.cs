@@ -2,5 +2,6 @@
 using DelegateDemo;
 using DelegateDemo.EventTest;
 
+// DelegateTest.TestPlus(1, 2);
 EventTest.Test2();
 Console.ReadKey();

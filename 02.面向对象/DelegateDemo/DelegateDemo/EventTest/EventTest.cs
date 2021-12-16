@@ -26,13 +26,15 @@ namespace DelegateDemo.EventTest
         internal static void Test2()
         {
             var searcher = new FileSearcher();
-            searcher.FileFound += Searcher_FileFound;
+            // 订阅
+            searcher.FileFound += Searcher_FileFound1;
             searcher.Search("d:\\", "*.cer");
         }
 
-        private static void Searcher_FileFound(object? sender, FileFoundArgs e)
+        private static void Searcher_FileFound1(object? sender, FileFoundArgs e)
         {
-            Console.WriteLine("Searcher_FileFound:"+ e.FoundFile);
+            Console.WriteLine("Searcher_FileFound:" + e.FoundFile);
         }
+
     }
 }

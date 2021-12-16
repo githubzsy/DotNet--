@@ -19,16 +19,23 @@ namespace DelegateDemo
     {
         public static int TestPlus(int a , int b)
         {
-            try
-            {
-                return a + b;
-            }
-            catch (Exception ex)
-            {
-                // 记录日志
-                Console.WriteLine(ex.Message);
-                throw ex;
-            }
+            return InnerTest(a, b, Plus);
+            InnerTest(a, b, (a, b) => { return a + b; });
+            //try
+            //{
+            //    return a + b;
+            //}
+            //catch (Exception ex)
+            //{
+            //    // 记录日志
+            //    Console.WriteLine(ex.Message);
+            //    throw ex;
+            //}
+        }
+
+        private static int Plus(int a, int b)
+        {
+            return a + b;
         }
 
         public static int TestDivide(int a,int b)
@@ -56,10 +63,7 @@ namespace DelegateDemo
         /// <returns></returns>
         public delegate int HandleTwoInt(int a, int b);
 
-        private static int Plus(int a, int b)
-        {
-            return a + b;
-        }
+       
 
         public static int InnerTest(int a , int b, HandleTwoInt handleTwoInt)
         {
