@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DtoModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiDemo.Models;
 
 namespace WebApiDemo.Controllers
 {
@@ -44,6 +44,17 @@ namespace WebApiDemo.Controllers
         {
             return dto;
         }
+
+        [HttpPost]
+        public ActionResult<AnimalDto> PostDto2(AnimalDto dto)
+        {
+            if (dto.Name == null)
+            {
+                return NotFound();
+            }
+            else return dto;
+        }
+
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()

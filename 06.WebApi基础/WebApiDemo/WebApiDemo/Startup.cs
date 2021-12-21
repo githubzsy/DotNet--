@@ -26,7 +26,10 @@ namespace WebApiDemo
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(c => {
+                c.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                c.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiDemo", Version = "v1" });
