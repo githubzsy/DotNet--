@@ -8,6 +8,8 @@
  *└──────────────────────────────────────────┘
  */
 
+using System.ComponentModel.DataAnnotations;
+
 namespace DtoModels
 {
     /// <summary>
@@ -18,11 +20,12 @@ namespace DtoModels
         /// <summary>
         /// 名称
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// 年龄
         /// </summary>
-        public int Age { get; set; }
+        public int? Age { get; set; }
     }
 }
