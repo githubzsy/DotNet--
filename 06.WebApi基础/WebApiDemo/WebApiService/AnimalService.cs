@@ -35,7 +35,8 @@ namespace WebApiService
             return repository.GetAll().Select(animal => new AnimalDto
             {
                 Age = animal.Age,
-                Name = animal.Name
+                Name = animal.Name,
+                Id = animal.Id
             }).ToList();
         }
     }

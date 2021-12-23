@@ -17,6 +17,8 @@ namespace DtoModels
     /// </summary>
     public class AnimalDto
     {
+        public string Id { get; set; }
+
         /// <summary>
         /// 名称
         /// </summary>
