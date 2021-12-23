@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\07.Winform基础\WinformDemo\DtoModels\DtoModels.csproj" />
+    <ProjectReference Include="..\WebApiService\WebApiService.csproj" />
   </ItemGroup>
 
 </Project>

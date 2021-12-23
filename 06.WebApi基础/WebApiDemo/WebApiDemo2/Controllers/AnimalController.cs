@@ -1,7 +1,10 @@
 ﻿using DtoModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using WebApiService;
 
 namespace WebApiDemo2.Controllers
 {
@@ -12,17 +15,28 @@ namespace WebApiDemo2.Controllers
     [ApiController]
     public class AnimalController : ControllerBase
     {
-        static List<AnimalDto> animals { get; set; }
+        AnimalService service = new AnimalService();
 
         /// <summary>
         /// http://域名:端口/api/animal/GetTest
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetTe")]
-        public string GetTest()
+        [HttpGet]
+        public AnimalDto GetTest(string name)
         {
-            return "123";
+            return  service.Get(name);
         }
+
+        /// <summary>
+        /// 获取所有
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<AnimalDto> GetAll()
+        {
+            return service.GetAll();
+        }
+
 
         /// <summary>
         /// Post测试
@@ -32,8 +46,18 @@ namespace WebApiDemo2.Controllers
         [HttpPost]
         public AnimalDto PostTest(AnimalDto animalDto)
         {
-            animals.Add(animalDto);
+            service.Add(animalDto);
             return animalDto;
+        }
+
+        /// <summary>
+        /// 删除测试
+        /// </summary>
+        /// <param name="name"></param>
+        [HttpDelete]
+        public void DeleteTest(string name)
+        {
+            service.Delete(name);
         }
 
 

@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDemo", "WebApiDemo\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtoModels", "..\..\07.Winform基础\WinformDemo\DtoModels\DtoModels.csproj", "{F135B9D6-7615-4454-974D-2B9CAC60D7E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDemo2", "WebApiDemo2\WebApiDemo2.csproj", "{96435CE6-75B7-4ABA-8BE5-E19D53A62AE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDemo2", "WebApiDemo2\WebApiDemo2.csproj", "{96435CE6-75B7-4ABA-8BE5-E19D53A62AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiService", "WebApiService\WebApiService.csproj", "{4D9002C6-E94A-4346-BE81-7C6EB1A7631B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDAL", "WebApiDAL\WebApiDAL.csproj", "{0B390D4B-2B9C-41F1-9AD0-E35E542E6A73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{84977CAC-4BAB-47A6-9AE4-48BADE8342DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{96435CE6-75B7-4ABA-8BE5-E19D53A62AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96435CE6-75B7-4ABA-8BE5-E19D53A62AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96435CE6-75B7-4ABA-8BE5-E19D53A62AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9002C6-E94A-4346-BE81-7C6EB1A7631B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9002C6-E94A-4346-BE81-7C6EB1A7631B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9002C6-E94A-4346-BE81-7C6EB1A7631B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9002C6-E94A-4346-BE81-7C6EB1A7631B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B390D4B-2B9C-41F1-9AD0-E35E542E6A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B390D4B-2B9C-41F1-9AD0-E35E542E6A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B390D4B-2B9C-41F1-9AD0-E35E542E6A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B390D4B-2B9C-41F1-9AD0-E35E542E6A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84977CAC-4BAB-47A6-9AE4-48BADE8342DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84977CAC-4BAB-47A6-9AE4-48BADE8342DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84977CAC-4BAB-47A6-9AE4-48BADE8342DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84977CAC-4BAB-47A6-9AE4-48BADE8342DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
