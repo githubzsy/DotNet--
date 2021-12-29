@@ -8,26 +8,65 @@
  *└──────────────────────────────────────────┘
  */
 
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace DtoModels
 {
     /// <summary>
     /// 动物Dto
     /// </summary>
-    public class AnimalDto
+    public class AnimalDto : INotifyPropertyChanged
     {
-        public string Id { get; set; }
+        public string Id
+        {
+            get => id;
+            set
+            {
+                id = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        /// <summary>
-        /// 名称
-        /// </summary>
-        [Required]
-        public string Name { get; set; }
+        private string id;
+
+
+        public string Name
+        {
+            get => name;
+            set
+            {
+                if (value != Name)
+                {
+                    name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string name;
 
         /// <summary>
         /// 年龄
         /// </summary>
-        public int? Age { get; set; }
+        public int? Age
+        {
+            get => age;
+            set
+            {
+                age = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int? age;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

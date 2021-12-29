@@ -12,7 +12,7 @@ namespace AdoOracleDemo
 
         static void Main(string[] args)
         {
-            SelectData1();
+            SelectData2();
             Console.ReadKey();
         }
 
@@ -35,7 +35,7 @@ namespace AdoOracleDemo
 
                 string sql = " select * from Animal";
 
-                adapter = new OracleDataAdapter(sql, conn);
+                adapter = new OracleDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 Console.WriteLine(dt.Rows.Count);
@@ -64,8 +64,6 @@ namespace AdoOracleDemo
                 }
 
                 Console.WriteLine(JsonSerializer.Serialize(animals));
-                int i = 0;
-                int j = 1 / i;
                 transaction.Commit();
             }
             catch
@@ -94,13 +92,21 @@ namespace AdoOracleDemo
                     p.ParameterName = ":Name";
                     p.Value = "ASD";
                     cmd.Parameters.Add(p);
-                    using (var dr = cmd.ExecuteReader())
+
+                    using (var adapter = new OracleDataAdapter(cmd))
                     {
-                        while (dr.Read())
-                        {
-                            Console.WriteLine("狗年龄: {0}", dr["AGE"]);
-                        }
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        Console.WriteLine(dt.Rows.Count);
                     }
+
+                    //using (var dr = cmd.ExecuteReader())
+                    //{
+                    //    while (dr.Read())
+                    //    {
+                    //        Console.WriteLine("狗年龄: {0}", dr["AGE"]);
+                    //    }
+                    //}
                 }
             }
         }

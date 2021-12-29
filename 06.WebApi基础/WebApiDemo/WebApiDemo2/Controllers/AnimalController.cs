@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using WebApiService;
 
@@ -60,6 +61,20 @@ namespace WebApiDemo2.Controllers
             service.Delete(name);
         }
 
-
+        /// <summary>
+        /// 接收文件
+        /// </summary>
+        /// <param name="qq"></param>
+        /// <param name="file"></param>
+        [HttpPost]
+        public void SaveFile([FromForm] string qq, IFormFile file)
+        {
+            var filefullPath = Path.Combine(Directory.GetCurrentDirectory(), file.FileName);
+            using (FileStream fs = new FileStream(filefullPath, FileMode.Create))
+            {
+                file.CopyTo(fs);
+                fs.Flush();
+            };
+        }
     }
 }
