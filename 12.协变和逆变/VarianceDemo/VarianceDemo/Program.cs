@@ -23,6 +23,13 @@ IEnumerable<string> strings = new List<string>();
 IEnumerable<object> objects = strings;
 
 
+IEnumerable<object> objects2 = new List<object>() { "1",1 };
+IEnumerable<string> strings2 =  new List<string>();
+foreach (var item in objects2)
+{
+    string s = (string)item;
+
+}
 // 举例2:
 IEnumerable<Cat> cats=new List<Cat>();
 IEnumerable<Animal> animals = cats;
@@ -33,17 +40,23 @@ IEnumerable<Animal> animals = cats;
 // Contravariance.
 // Assume that the following method is in the class:
 // static void SetObject(object o) { }
-Action<object> actObject = (object t) => { };
+Action<object> actObject = (object t) => {  };
 // An object that is instantiated with a less derived type argument
 // is assigned to an object instantiated with a more derived type argument.
 // Assignment compatibility is reversed.
 Action<string> actString = actObject;
+actString("123");
+
+
+Func<string> funcString = () => { return "a"; };
+Func<object> funcObject = funcString;
+funcObject();
 #endregion
 
 
 
 // 举例3:
-Variance<Cat, Animal, Cat> variance = new();
+Variance <Cat, Animal, Cat> variance = new();
 
 // 接口类型为Animal，可协变，接收其自身和子类
 ICovariance<Animal> covariance = variance;
