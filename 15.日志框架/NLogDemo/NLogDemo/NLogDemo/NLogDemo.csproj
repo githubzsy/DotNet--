@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="NLog" Version="4.7.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IService\IService.csproj" />
+    <ProjectReference Include="..\Service.MySql\Service.MySql.csproj" />
+    <ProjectReference Include="..\Service.Oracle\Service.Oracle.csproj" />
+  </ItemGroup>
+
+</Project>
