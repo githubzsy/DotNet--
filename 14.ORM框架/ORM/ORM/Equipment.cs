@@ -20,5 +20,13 @@ namespace ORM
 
         [Column("EQUIPMENT_NAME")]
         public string EquipmentName { get; set; }
+
+        public List<EquipmentType> EQUIPMENT_TYPES { get; set; }
+    }
+
+    public enum EquipmentType
+    {
+        TBJ=1,
+        GY=2
     }
 }

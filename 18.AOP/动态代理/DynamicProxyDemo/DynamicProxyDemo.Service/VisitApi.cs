@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynamicProxyDemo
+﻿namespace DynamicProxyDemo.Service
 {
     /// <summary>
     /// 假定实际业务是访问Api
     /// </summary>
-    public class VisitApi:IVisitApi
+    public class VisitApi : IVisitApi
     {
         public virtual void Visit(string api)
         {
